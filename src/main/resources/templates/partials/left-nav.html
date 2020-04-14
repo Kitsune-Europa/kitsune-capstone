@@ -13,16 +13,16 @@
                     <img alt="My Profile Picture" class="rounded-circle img-responsive mt-2" th:src="${profilePic}" width="128px" height="128px"/>
 
                     <!--               Displays logged in username-->
-                    <h3 class="dash-header" th:text="${username}">username</h3>
+                    <h2 class="dash-header" th:text="${username}">username</h2>
                 </div>
                 <!--            Navigation for user's account/blog/post -->
                 <div class="dash-nav pl-1">
                     <hr>
-                    <h6><a class="dash-link" th:href="@{/account}">My Account</a></h6>
-                    <h6><a class="dash-link" th:href="@{/dashboard/blogs/myblogs}">My Blogs</a></h6>
-                    <h6><a class="dash-link" th:href="@{/dashboard/blogs/create}">New Blog</a></h6>
-                    <h6><a class="dash-link" th:href="@{/dashboard/posts/myposts}">My Posts</a></h6>
-                    <h6><a class="dash-link" th:href="@{/dashboard/posts/create}">New Post</a></h6>
+                    <h5><a class="dash-link" th:href="@{/account}">My Account</a></h5>
+                    <h5><a class="dash-link" th:href="@{/dashboard/blogs/myblogs}">My Blogs</a></h5>
+                    <h5><a class="dash-link" th:href="@{/dashboard/blogs/create}">New Blog</a></h5>
+                    <h5><a class="dash-link" th:href="@{/dashboard/posts/myposts}">My Posts</a></h5>
+                    <h5><a class="dash-link" th:href="@{/dashboard/posts/create}">New Post</a></h5>
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@
 
         <!--        Recent Posts: posts from followed blogs-->
         <div class="col-lg-6">
-            <h3 class="dash-header mt-2">Recent Posts</h3>
+            <h2 class="dash-header mt-2">Recent Posts</h2>
             <hr style="border: #1674b1 solid 2px;">
             <!--Displays if user is not following any blogs with posts-->
             <div th:each="blog : ${users.following}">
@@ -44,7 +44,7 @@
                             </div>
 
                             <!--                                Testing iframes-->
-                            <div th:if="${post.videoEmbedCode} != null">
+                            <div th:if="${#strings.isEmpty(post.videoEmbedCode) == false}">
                                 <iframe class="video-post"
                                         th:src="@{https://www.youtube.com/embed/{videoEmbedCode}(videoEmbedCode = ${post.videoEmbedCode})}"
                                         frameborder="0"
@@ -71,12 +71,17 @@
                                     <a th:href="@{/dashboard/blogs/{id}(id=${post.blog.id})}"
                                        class="btn follow-btn align-self-center mr-1"><i
                                             class="far fa-eye"></i></a>
-                                    <form th:action="@{|/dashboard/blogs/${blog.id}/follow|}" th:method="POST"
-                                          style="display:inline">
-                                    <button
-                                       class="btn follow-btn dash-follow"><i
-                                            class="fas fa-plus"></i></button>
-                                    </form>
+                                    <div th:if="${userName != blog.user.username}">
+                                        <div th:if="${#lists.contains(following, blog)}">
+                                            <button class="btn btn-sm align-self-center ml-1">Following</button>
+                                        </div>
+                                        <div th:unless="${#lists.contains(following, blog)}">
+                                            <form th:action="@{|/dashboard/blogs/${blog.id}/follow|}" th:method="POST"
+                                                  style="display:inline">
+                                                <button class="btn btn-sm align-self-center ml-1"><i class="fas fa-plus"></i></button>
+                                            </form>
+                                        </div>
+                                    </div>
                                     <a th:href="@{|/dashboard/posts/${post.id}/reblog|}"
                                        class="btn follow-btn align-self-center ml-1"><i class="fas fa-retweet"></i></a>
                                     <!--                                    <a th:href="@{|/dashboard/posts/${post.id}/reblog|}">-->

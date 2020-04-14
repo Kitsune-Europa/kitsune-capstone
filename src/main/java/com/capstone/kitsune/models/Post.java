@@ -165,6 +165,15 @@ public class Post {
         this.linkUrl = linkUrl;
     }
 
+    public Post(String textTitle, String textBody, User user, Blog blog, List<Category> categories, String linkUrl) {
+        this.textTitle = textTitle;
+        this.textBody = textBody;
+        this.user = user;
+        this.blog = blog;
+        this.categories = categories;
+        this.linkUrl = linkUrl;
+    }
+
     public long getId() {
         return id;
     }

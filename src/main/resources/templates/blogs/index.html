@@ -16,11 +16,11 @@
 
         <!--        Table start-->
         <div class="col-lg-6">
-            <h3 class="dash-header mt-2">All Blogs</h3>
+            <h2 class="dash-header mt-2">All Blogs</h2>
             <hr style="border: #1674b1 solid 2px;">
             <!--Displays if no blogs exist in database-->
             <div th:if="${#lists.isEmpty(blogs)}">
-                <h2>No blogs to show</h2>
+                <h3>No blogs to show</h3>
             </div>
             <!--Displays if blogs exist in database-->
             <div th:if="!${#lists.isEmpty(blogs)}">

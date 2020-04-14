@@ -76,9 +76,6 @@ public class PostController {
                 linkUrl = "https://" + linkUrl;
             }
         }
-        if((String)request.getSession().getAttribute("videoEmbedCode") == null || (String)request.getSession().getAttribute("videoEmbedCode") == ""){
-
-        }
         Post post = new Post(textTitle, textBody, loggedInUser, blog, categoriesList, (String)request.getSession().getAttribute("videoEmbedCode"), linkUrl);
         postDao.save(post);
         return "redirect:/dashboard/posts";
@@ -188,7 +185,7 @@ public class PostController {
     }
 
     @GetMapping("/dashboard/posts/{id}/reblog")
-    public String reblogPostForm(@PathVariable long id, Model model) {
+    public String reblogPostForm(HttpServletRequest request, @PathVariable long id, Model model) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (loggedInUser != null) {
             Post post = postDao.getOne(id);
@@ -203,7 +200,7 @@ public class PostController {
     }
 
     @PostMapping("/dashboard/posts/{id}/reblog")
-    public String savePostReblog(@RequestParam long id, @RequestParam String textTitle, @RequestParam String textBody, @RequestParam List<Category> categories, @RequestParam String videoEmbedCode, @RequestParam String linkUrl) {
+    public String savePostReblog(@RequestParam String videoEmbedCode, @RequestParam long id, @RequestParam String textTitle, @RequestParam String textBody, @RequestParam List<Category> categories, @RequestParam String linkUrl) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Blog blog = blogDao.getOne(id);
         if(!linkUrl.isEmpty()) {
