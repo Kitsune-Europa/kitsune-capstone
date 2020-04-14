@@ -50,6 +50,15 @@ body {
     border-radius: 15px;
 }
 
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 150px;
+    z-index: 99;
+    cursor: pointer;
+}
+
 /*Dividers*/
 hr {
     border: #239cd3 solid 2px;
