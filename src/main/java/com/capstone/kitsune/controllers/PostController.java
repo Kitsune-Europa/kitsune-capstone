@@ -166,7 +166,7 @@ public class PostController {
         }
         post.setLinkUrl(linkUrl);
         postDao.save(post);
-        return "redirect:/dashboard";
+        return "redirect:/dashboard/posts/myposts";
     }
 
     //Deleting a post
@@ -179,7 +179,7 @@ public class PostController {
             postDao.save(post);
             postDao.deleteById(id);
         }
-        return "redirect:/dashboard";
+        return "redirect:/dashboard/posts/myposts";
     }
 
     @GetMapping("/dashboard/posts/{id}/reblog")
@@ -208,7 +208,7 @@ public class PostController {
         }
         Post post2 = new Post(textTitle, textBody, loggedInUser, blog, categories, videoEmbedCode, linkUrl);
         postDao.save(post2);
-        return "redirect:/dashboard";
+        return "redirect:/dashboard/posts/myposts";
     }
 
 }
