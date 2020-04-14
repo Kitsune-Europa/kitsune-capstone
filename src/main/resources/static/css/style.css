@@ -342,3 +342,15 @@ tr {
     color: #ed6d50;
     font-weight: bold;
 }
+
+/*Google Search*/
+
+.site-link {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.site-link:hover {
+    color: #ed6d50;
+}
