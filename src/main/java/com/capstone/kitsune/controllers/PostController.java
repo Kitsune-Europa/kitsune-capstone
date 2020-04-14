@@ -78,7 +78,7 @@ public class PostController {
         }
         Post post = new Post(textTitle, textBody, loggedInUser, blog, categoriesList, (String)request.getSession().getAttribute("videoEmbedCode"), linkUrl);
         postDao.save(post);
-        return "redirect:/dashboard/posts";
+        return "redirect:/dashboard/posts/myposts";
     }
 
     // Viewing All Posts in Dashboard
@@ -166,7 +166,7 @@ public class PostController {
         }
         post.setLinkUrl(linkUrl);
         postDao.save(post);
-        return "redirect:/dashboard";
+        return "redirect:/dashboard/posts/myposts";
     }
 
     //Deleting a post
@@ -179,7 +179,7 @@ public class PostController {
             postDao.save(post);
             postDao.deleteById(id);
         }
-        return "redirect:/dashboard";
+        return "redirect:/dashboard/posts/myposts";
     }
 
     @GetMapping("/dashboard/posts/{id}/reblog")
@@ -201,6 +201,7 @@ public class PostController {
     public String savePostReblog(@RequestParam String videoEmbedCode, @RequestParam long id, @RequestParam String textTitle, @RequestParam String textBody, @RequestParam List<Category> categories, @RequestParam String linkUrl) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Blog blog = blogDao.getOne(id);
+        long blogid = id;
         if(!linkUrl.isEmpty()) {
             if (!linkUrl.contains("https://")) {
                 linkUrl = "https://" + linkUrl;
@@ -208,7 +209,7 @@ public class PostController {
         }
         Post post2 = new Post(textTitle, textBody, loggedInUser, blog, categories, videoEmbedCode, linkUrl);
         postDao.save(post2);
-        return "redirect:/dashboard";
+        return "redirect:/dashboard/posts/myposts";
     }
 
 }
