@@ -334,13 +334,11 @@ tr {
 
 /*Youtube Search*/
 
-#texttocopy {
-    color: #1674b1;
-    z-index: -1;
-    visibility: hidden;
+.search-video {
+    width: 100%;
 }
 
-.copy-btn {
-    transform: translateY(-2rem);
-    z-index: 1;
+.video-header {
+    color: #ed6d50;
+    font-weight: bold;
 }
