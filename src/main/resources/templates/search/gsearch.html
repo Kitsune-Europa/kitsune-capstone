@@ -1,31 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: head('Text Content Search')">
+<head th:replace="partials/header :: head('Custom Search')">
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<div class="about-search mt-2">
-    <h2>Sites included in custom search</h2>
-    <ul>
-        <li><a class="site-link" href="https://www.gutenberg.org/wiki/Main_Page">Project Gutenberg</a class=site-link>- more info</li>
-        <li><a class="site-link" href="https://openlibrary.org/">Open Library by Internet Archive</a class=site-link>- more info</li>
-        <li><a class="site-link" href="https://openstax.org">OpenStax by Rice University</a class=site-link>- more info</li>
-        <li><a class="site-link" href="https://open.umn.edu/opentextbooks">Open Textbook Library by UMN</a class=site-link>- more info</li>
-        <li><a class="site-link" href="https://www.britannica.com/">Encyclopedia Britannica</a class=site-link>- more info</li>
-        <li><a class="site-link" href="https://en.wikipedia.org/wiki/Wikipedia">Wikipedia</a>- more info</li>
-    </ul>
-</div>
-<div class="mt-4">
-<!--    <iframe width="560" height="315" src="https://www.youtube.com/embed/F_G7BJBDrKU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-    <script async src="https://cse.google.com/cse.js?cx=004105696008600156915:oqp24uhc3ra"></script>
-    <div class="gcse-searchbox" data-enableHistory="true" data-personalizedAds="false" data-image_as_filetype="jpg, png, gif" style="width: 25vw"></div>
-    <div class="gcse-searchresults"></div>
+<div class="mt-3 container">
+    <!--   Row start: All three sections are in the same row-->
+    <div class="row">
+        <!--      Responsive user sticky navigation partial-->
+        <div th:replace="partials/left-nav :: left-nav"></div>
+
+        <!--        Recent Posts: posts from followed blogs-->
+        <div class="col-lg-6">
+            <h2 class="dash-header mt-2">Custom Search</h2>
+            <hr style="border: #1674b1 solid 2px;">
+            <div class="mt-4">
+                <script async src="https://cse.google.com/cse.js?cx=004105696008600156915:oqp24uhc3ra"></script>
+                <div class="gcse-searchbox" data-enableHistory="true" data-personalizedAds="false"
+                     data-image_as_filetype="jpg, png, gif" style="width: 25vw"></div>
+                <div class="gcse-searchresults"></div>
+            </div>
+        </div>
+
+
+        <!--Responsive Search sticky navigation partial-->
+        <div th:replace="partials/right-nav :: right-nav"></div>
+
+        <!--        End container and row-->
+    </div>
 </div>
 
+<div th:replace="partials/footer :: footer"></div>
+
+</body>
+</html>
 <div th:replace="partials/footer :: footer"></div>
 </body>
 </html>
