@@ -21,23 +21,23 @@
                     <form th:action="@{/dashboard/posts/create}" th:method="post" th:object="${post}" enctype="multipart/form-data">
                         <div class="d-flex justify-content-left align-items-baseline">
                             <label for="" class="pr-2">Title</label>
-                            <input th:field="*{textTitle}" placeholder="Post Title" class="pl-2"/>
+                            <input th:field="*{textTitle}" placeholder="Post Title" class="pl-2 login-input"/>
                         </div>
                         <br/>
                         <div class="d-flex justify-content-left align-items-baseline">
                             <label for="" class="pr-2">Body</label>
-                            <textarea th:field="*{textBody}" class="pl-2" placeholder="Text to display on your post"></textarea>
+                            <textarea th:field="*{textBody}" class="pl-2 login-input" placeholder="Text to display on your post"></textarea>
                         </div>
                         <br/>
 <!--                        Testing iframe-->
                         <div class="d-flex justify-content-left align-items-baseline">
                             <label for="" class="pr-2">Video id</label>
-                            <input th:value="${videoEmbedCode}" placeholder="Video URL" class="pl-2" readonly="true" disabled="true"/>
+                            <input th:value="${videoEmbedCode}" placeholder="Video URL" class="pl-2 login-input" readonly="true" disabled="true"/>
                         </div>
                         <br/>
                         <div class="d-flex justify-content-left align-items-baseline">
                             <label for="" class="pr-2">Link URL</label>
-                            <textarea th:field="*{linkUrl}" class="pl-2" placeholder="URL to article"></textarea>
+                            <textarea th:field="*{linkUrl}" class="pl-2 login-input" placeholder="URL to article"></textarea>
                         </div>
                         <br/>
                         <div class="d-flex justify-content-left align-items-baseline">

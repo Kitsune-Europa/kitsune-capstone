@@ -6,9 +6,6 @@
         <h5 class="video-header text-center m-2">{{title}}</h5>
         <iframe class="video search-video w100" height="360" src="//www.youtube.com/embed/{{videoid}}" frameborder="0"
                 allowfullscreen></iframe>
-        <!--    <a th:href="@{/dashboard/posts/create}">-->
-        <!--        <button data-url="//www.youtube.com/embed/{{videoid}}">Post Video to Blog</button>-->
-        <!--    </a>-->
         <div class="card-footer d-flex justify-content-center text-center">
             <form th:action="@{/dashboard/post/create}" modelAttribute="videoEmbedCode" th:method="get">
                 <button value="{{videoid}}" class="btn m-1 align-self-center" name="button">Post Video To Blog</button>
