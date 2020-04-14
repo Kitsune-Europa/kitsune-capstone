@@ -196,13 +196,13 @@ width: 600px;
 
 .login-input {
     width: 100%;
-    color: #fc910d;
-    font-size: small;
+    color: #000;
     border: #ed6d50 1px solid;
     border-radius: 6px;
     /*transform: translateX(-1rem);*/
     z-index: 1;
     height: 2rem;
+    padding-left: 1em
 }
 
 .login-btn {
