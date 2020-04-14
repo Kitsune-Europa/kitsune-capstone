@@ -14,6 +14,11 @@ public class AuthenticationController {
         return "users/login";
     }
 
+    @GetMapping("/logout")
+    public String logout(){
+        return "redirect:/sign-up";
+    }
+
     @PostMapping("/logout")
     public String showLogoutForm(){
         return "redirect:/login";

@@ -35,7 +35,7 @@
                 <p th:text="${post.textBody}"></p>
             </td>
             <td>
-                <div th:if="${post.videoEmbedCode} != null">
+                <div th:if="${#strings.isEmpty(post.videoEmbedCode) == false}">
                     <iframe width="560" height="315"  th:src="@{https://www.youtube.com/embed/{videoEmbedCode}(videoEmbedCode = ${post.videoEmbedCode})}"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </td>
@@ -57,9 +57,8 @@
             <!--                    </a>-->
             <!--                </div>-->
             <!--            </td>-->
-            <td><div><img th:src="@{{image}(image=${post.linkUrl})}" th:class="img-responsive" style="width:60px"/></div></td>
             <td>
-                <span th:each="category : ${post.categories}">
+                <span th:each="category : ${post.categories}" type="hidden">
                         <label th:text="${category.name}"></label>
                 </span>
             </td>

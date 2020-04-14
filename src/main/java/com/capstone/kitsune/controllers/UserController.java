@@ -78,6 +78,6 @@ public class UserController {
         long id = loggedInUser.getId();
         User user = users.getOne(id);
         users.delete(user);
-        return "redirect:/sign-up";
+        return "redirect:/logout";
     }
 }
