@@ -30,7 +30,7 @@
                 <p th:text="${post.textTitle}"></p>
             </td>
             <td>
-                <div th:if="${post.videoEmbedCode} != null">
+                <div th:if="${#strings.isEmpty(post.videoEmbedCode) == false}">
                     <iframe width="560" height="315"  th:src="@{https://www.youtube.com/embed/{videoEmbedCode}(videoEmbedCode = ${post.videoEmbedCode})}"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </td>
