@@ -216,4 +216,9 @@ public class BlogController extends BlogsService {
     public String getBlogSearch(@RequestParam(name = "search", defaultValue = "") String search, Model model) {
         return "blogs/search";
     }
+
+    @GetMapping("/dashboard/search/tips")
+    public String getSearchTips() {
+        return "search/tips";
+    }
 }

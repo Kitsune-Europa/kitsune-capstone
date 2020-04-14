@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: head('Video Search')">
+<head th:replace="partials/header :: head('Search Tips')">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -17,38 +17,90 @@
         <div class="col-lg-6">
             <h2 class="dash-header mt-2">Search FAQs</h2>
             <hr style="border: #1674b1 solid 2px;">
-            <h4>About Our Custom Search Engine</h4>
-            <ul>
-                <li><a class="site-link" href="https://www.youtube.com">YouTube</a>- more
-                    info
-                </li>
-                <li><a class="site-link" href="https://www.gutenberg.org/wiki/Main_Page">Project Gutenberg</a>- more
-                    info
-                </li>
-                <li><a class="site-link" href="https://openlibrary.org/">Open Library by Internet Archive</a>- more info
-                </li>
-                <li><a class="site-link" href="https://openstax.org">OpenStax by Rice University</a>- more info</li>
-                <li><a class="site-link" href="https://open.umn.edu/opentextbooks">Open Textbook Library by UMN</a>-
-                    more
-                    info
-                </li>
-                <li><a class="site-link" href="https://www.britannica.com/">Encyclopedia Britannica</a>- more info</li>
-                <li><a class="site-link" href="https://en.wikipedia.org/wiki/Wikipedia">Wikipedia</a>- more info</li>
-            </ul>
+            <div class="card search-card mb-2">
+                <h5 class="video-header text-center m-2">Kitsune's Custom Search Sites</h5>
+                <ul style="list-style-type:none">
+                    <li><a class="site-link" href="https://www.youtube.com"><em>YouTube</em></a>- more
+                        info
+                    </li>
+                    <li><a class="site-link" href="https://www.gutenberg.org/wiki/Main_Page"><em>Project Gutenberg</em></a>-
+                        more
+                        info
+                    </li>
+                    <li><a class="site-link" href="https://openlibrary.org/"><em>Open Library by Internet
+                        Archive</em></a>- more info
+                    </li>
+                    <li><a class="site-link" href="https://openstax.org"><em>OpenStax by Rice University</em></a>- more
+                        info
+                    </li>
+                    <li><a class="site-link" href="https://open.umn.edu/opentextbooks"><em>Open Textbook Library by
+                        UMN</em></a>-
+                        more
+                        info
+                    </li>
+                    <li><a class="site-link" href="https://www.britannica.com/"><em>Encyclopedia Britannica</em></a>-
+                        more info
+                    </li>
+                    <li><a class="site-link" href="https://en.wikipedia.org/wiki/Wikipedia"><em>Wikipedia</em></a>- more
+                        info
+                    </li>
+                </ul>
+            </div>
+            <div class="card p-2 mb-2">
+                <h5 class="video-header text-center m-2">University of Maryland: Finding Sources</h5>
+                <div class="mx-auto">
+                    <em><a href="https://sites.umgc.edu/library/libhow/credibility.cfm"
+                           class="site-link">Is My Source Credible?</a></em> How to evaluate the reliability of a
+                    source.
+                </div>
+            </div>
             <div class="card mb-2">
                 <h5 class="video-header text-center m-2">How to Google with Advanced Search Operators (9 Actionable
                     Tips)</h5>
                 <iframe class="video search-video w100" height="360" src="https://www.youtube.com/embed/yWLD9139Ipc"
                         frameborder="0"
                         allowfullscreen></iframe>
-                <div class="card-footer d-flex justify-content-center text-center">
-                    <form th:action="@{/dashboard/post/create}" modelAttribute="videoEmbedCode" th:method="get">
-                        <button value="yWLD9139Ipc" class="btn m-1 align-self-center" name="button">Post Video To Blog
-                        </button>
-                    </form>
-                </div>
+                <div class="card-footer"></div>
+            </div>
+            <div class="card mb-2">
+                <h5 class="video-header text-center m-2">Advanced Search Tips</h5>
+                <p class="text-center"><em><a href="https://ahrefs.com/blog/google-advanced-search-operators/"
+                                              class="site-link">Google Search Operators: The Complete List (42 Advanced
+                    Operators)</a></em></p>
+                <p class="ml-3"><strong>Common Operators:</strong></p>
+                <ul>
+                    <li class="mb-2"><span style="color: #fc910d"><strong>“search term”</strong></span> Force an
+                        exact-match search. Use this to refine results for ambiguous searches, or to exclude synonyms
+                        when searching for single words. <strong>Example:</strong> <span style="color: #fc910d"><strong>“</strong></span>steve
+                        jobs<span style="color: #fc910d"><strong>”</strong></span></li>
+                    <li class="mb-2"><span style="color: #fc910d"><strong>OR</strong></span> Search for X or Y. This
+                        will return results related to X or Y, or both. Note: The pipe (|) operator can also be used in
+                        place of “OR.” <strong>Example:</strong> jobs <span
+                                style="color: #fc910d"><strong>OR</strong></span> gates / jobs <span
+                                style="color: #fc910d"><strong>|</strong></span> gates
+                    </li>
+                    <li class="mb-2"><span style="color: #fc910d"><strong>AND</strong></span> Search for X and Y. This
+                        will return only results related to both X and Y. <strong>Example</strong>: jobs <span
+                                style="color: #fc910d"><strong>AND</strong></span> gates
+                    </li>
+                    <li class="mb-2"><span style="color: #fc910d"><strong>-</strong></span> Exclude a term or phrase. In
+                        our example, any pages returned will be related to jobs but not Apple (the company).<strong>Example:</strong>
+                        jobs <span style="color: #fc910d"><strong>‑</strong></span>apple
+                    </li>
+                    <li class="mb-2"><span style="color: #fc910d"><strong>()</strong></span> Group multiple terms or
+                        search operators to control how the search is executed. <strong>Example:</strong> <span
+                                style="color: #fc910d"><strong>(</strong></span>ipad OR iphone<span
+                                style="color: #fc910d"><strong>)</strong></span> apple
+                    </li>
+                    <li class="mb-2"><span style="color: #fc910d"><strong>site:</strong></span> Limit results to a
+                        specific website. <strong>Example:</strong> <span style="color: #fc910d"><strong>site:</strong></span>apple.com
+                    </li>
+                </ul>
             </div>
         </div>
+
+        <div th:replace="partials/right-nav :: right-nav"></div>
+
     </div>
 </div>
 
