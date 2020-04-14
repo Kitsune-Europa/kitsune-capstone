@@ -36,12 +36,12 @@
             </td>
             <td>
                 <a th:href="@{|/dashboard/blogs/${blog.id}/edit|}">
-                    <button>Edit Blog</button>
+                    <button class="btn">Edit Blog</button>
                 </a>
             </td>
             <td>
                 <form th:action="@{|/dashboard/blogs/${blog.id}/delete|}" th:method="POST" style="display:inline">
-                    <button>Delete Blog</button>
+                    <button class="btn">Delete Blog</button>
                 </form>
             </td>
             <td>
