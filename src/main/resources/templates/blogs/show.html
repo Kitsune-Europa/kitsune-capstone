@@ -40,7 +40,7 @@
 </div>
 <div class="posts" th:each="post : ${blog.posts}">
     <h2 th:text="${post.textTitle}"></h2>
-    <div th:if="${post.videoEmbedCode} != null">
+    <div th:if="${#strings.isEmpty(post.videoEmbedCode) == false}">
         <iframe width="560" height="315"  th:src="@{https://www.youtube.com/embed/{videoEmbedCode}(videoEmbedCode = ${post.videoEmbedCode})}"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div th:if="!${#strings.isEmpty(post.images)}">
