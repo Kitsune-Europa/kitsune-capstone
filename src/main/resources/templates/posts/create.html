@@ -16,7 +16,8 @@
 
             <!-- Form Start-->
             <div class="col-lg-6">
-                <h3 class="dash-header">New Post</h3>
+                <h2 class="dash-header">New Post</h2>
+                <hr style="border: #1674b1 solid 2px;">
                 <div class="form-container">
                     <form th:action="@{/dashboard/posts/create}" th:method="post" th:object="${post}" enctype="multipart/form-data">
                         <div class="d-flex justify-content-left align-items-baseline">

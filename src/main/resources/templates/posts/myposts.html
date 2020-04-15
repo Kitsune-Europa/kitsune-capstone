@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="partials/header :: head('All My Posts')">
+<head th:replace="partials/header :: head('My Posts')">
     <meta charset="UTF-8">
     <title>My Posts</title>
 </head>
@@ -17,7 +17,7 @@
 
         <!--        Table start-->
         <div class="col-lg-6">
-            <h2 class="dash-header mt-2">All Posts</h2>
+            <h2 class="dash-header mt-2">My Posts</h2>
             <hr style="border: #1674b1 solid 2px;">
             <!--Displays if no blogs exist in database-->
             <div th:if="${#lists.isEmpty(posts)}">
