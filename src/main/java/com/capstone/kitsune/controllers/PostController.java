@@ -78,7 +78,7 @@ public class PostController {
         }
         Post post = new Post(textTitle, textBody, loggedInUser, blog, categoriesList, (String)request.getSession().getAttribute("videoEmbedCode"), linkUrl);
         postDao.save(post);
-        return "redirect:/dashboard/posts";
+        return "redirect:/dashboard/posts/myposts";
     }
 
     // Viewing All Posts in Dashboard
@@ -201,6 +201,7 @@ public class PostController {
     public String savePostReblog(@RequestParam String videoEmbedCode, @RequestParam long id, @RequestParam String textTitle, @RequestParam String textBody, @RequestParam List<Category> categories, @RequestParam String linkUrl) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Blog blog = blogDao.getOne(id);
+        long blogid = id;
         if(!linkUrl.isEmpty()) {
             if (!linkUrl.contains("https://")) {
                 linkUrl = "https://" + linkUrl;
