@@ -24,7 +24,7 @@
                         <th>Blogs</th>
                     </tr>
                     <tr th:each="blog : ${blogs}">
-                        <td>
+                        <td class="p-2">
                             <a th:href="@{|/dashboard/blogs/${blog.id}|}"><p th:text="${blog.blogTitle}"></p></a>
                         </td>
                     </tr>
