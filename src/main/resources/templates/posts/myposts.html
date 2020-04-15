@@ -53,7 +53,7 @@
                                 <label th:text="${category.name}"></label>
                             </span>
                         </div>
-                            <div class="card-footer" sec:authorize="isAuthenticated()">
+                        <div class="card-footer" sec:authorize="isAuthenticated()">
                                 <div class="row d-flex justify-content-center">
                                     <div th:if="${userName == post.blog.user.username}">
                                         <a th:href="@{|/dashboard/posts/${post.id}/edit|}">

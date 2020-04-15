@@ -1,37 +1,70 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
+<head th:replace="partials/header :: head('Post Details')">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <div th:replace="partials/navbar :: navbar"></div>
-<h1 th:text="${post.textTitle}"></h1>
-<p> By: <span th:text="${post.blog.blogTitle}"></span></p>
-<p th:text="${post.textBody}"></p>
-<div th:if="${#strings.isEmpty(post.videoEmbedCode) == false}">
-    <iframe width="560" height="315"  th:src="@{https://www.youtube.com/embed/{videoEmbedCode}(videoEmbedCode = ${post.videoEmbedCode})}"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-<div th:if="${post.linkUrl} != null">
-    <a th:href="@{${post.linkUrl}}" th:text="${post.linkUrl}"></a>
-</div>
-<span th:each="category : ${post.blog.categories}" type="hidden">
-    <label th:text="${category.name}"></label>
-</span>
-<br>
-<div sec:authorize="isAuthenticated()">
-    <div th:if="${userName == post.blog.user.username}">
-        <a th:href="@{|/dashboard/posts/${post.id}/edit|}">
-            <button class="btn">Edit Post</button>
-        </a>
-        <form th:action="@{|/dashboard/posts/${post.id}/delete|}" th:method="POST" style="display:inline">
-            <button class="btn">Delete Post</button>
-        </form>
+<!--Container start-->
+<div class="mt-3 container">
+    <!--   Row start: All three sections are in the same row-->
+    <div class="row">
+        <!--      Responsive user sticky navigation partial-->
+        <div th:replace="partials/left-nav :: left-nav"></div>
+
+        <!--        Recent Posts: posts from followed blogs-->
+        <div class="col-lg-6">
+            <h2 class="dash-header mt-2">Post Details</h2>
+            <hr style="border: #1674b1 solid 2px;">
+            <div class="post-container d-flex flex-column-reverse">
+                <div class="card post mb-3">
+                    <div class="card-body">
+                        <h5 th:text="${post.textTitle}" class="card-title">Card title</h5>
+                        <div th:if="${#strings.isEmpty(post.videoEmbedCode) == false}">
+                            <iframe class="video-post"
+                                    th:src="@{https://www.youtube.com/embed/{videoEmbedCode}(videoEmbedCode = ${post.videoEmbedCode})}"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                        </div>
+                        <div th:if="${post.linkUrl} != null">
+                            <a th:href="@{${post.linkUrl}}" th:text="${post.linkUrl}"></a>
+                        </div>
+                        <p th:text="${post.textBody}"></p>
+                        <span class="categories" th:each="category : ${post.categories}" type="hidden">
+                                <label th:text="${category.name}"></label>
+                            </span>
+                    </div>
+                    <div class="card-footer" sec:authorize="isAuthenticated()">
+                        <div class="row d-flex justify-content-center">
+                            <div th:if="${userName == post.blog.user.username}">
+                                <a th:href="@{|/dashboard/posts/${post.id}/edit|}">
+                                    <button class="btn">Edit</button>
+                                </a>
+                                <form th:action="@{|/dashboard/posts/${post.id}/delete|}" th:method="POST"
+                                      style="display:inline">
+                                    <button class="btn">Delete</button>
+                                </form>
+                            </div>
+                            <div>
+                                <a th:href="@{|/dashboard/posts/${post.id}/reblog|}">
+                                    <button class="btn">Reblog</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div th:replace="partials/right-nav :: right-nav"></div>
+
     </div>
-    <div>
-        <a th:href="@{|/dashboard/posts/${post.id}/reblog|}"><button class="btn">Reblog</button></a>
-    </div>
 </div>
+
+<div th:replace="partials/footer :: footer"></div>
+
 </body>
 </html>
