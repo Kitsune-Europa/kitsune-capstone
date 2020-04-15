@@ -2,8 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="partials/header :: head('All Blogs')"/>
-    <meta charset="UTF-8">
-    <title>Dashboard</title>
+<meta charset="UTF-8">
+<title>Dashboard</title>
 </head>
 <body>
 <div th:replace="partials/navbar :: navbar"></div>
@@ -16,11 +16,11 @@
 
         <!--        Table start-->
         <div class="col-lg-6">
-            <h3 class="dash-header mt-2">All Blogs</h3>
+            <h2 class="dash-header mt-2">All Blogs</h2>
             <hr style="border: #1674b1 solid 2px;">
             <!--Displays if no blogs exist in database-->
             <div th:if="${#lists.isEmpty(blogs)}">
-                <h2>No blogs to show</h2>
+                <h3>No blogs to show</h3>
             </div>
             <!--Displays if blogs exist in database-->
             <div th:if="!${#lists.isEmpty(blogs)}">
@@ -50,18 +50,18 @@
                         </td>
                         <td sec:authorize="isAuthenticated()">
                             <div class="row d-flex justify-content-center">
-                                    <a th:href="@{/dashboard/blogs/{id}(id=${blog.id})}"
-                                       class="btn btn-sm align-self-center"><i class="far fa-eye"></i></a>
-                                    <div th:if="${userName != blog.user.username}">
-                                        <div th:if="${#lists.contains(following, blog)}">
-                                            <button class="btn btn-sm align-self-center ml-1">Following</button>
-                                        </div>
-                                        <div th:unless="${#lists.contains(following, blog)}">
-                                            <form th:action="@{|/dashboard/blogs/${blog.id}/follow|}" th:method="POST"
-                                                  style="display:inline">
-                                                <button class="btn btn-sm align-self-center ml-1"><i class="fas fa-plus"></i></button>
-                                            </form>
-                                        </div>
+                                <a th:href="@{/dashboard/blogs/{id}(id=${blog.id})}"
+                                   class="btn btn-sm align-self-center"><i class="far fa-eye"></i></a>
+                                <div th:if="${userName != blog.user.username}">
+                                    <div th:if="${#lists.contains(following, blog)}">
+                                        <button class="btn btn-sm align-self-center ml-1">Following</button>
+                                    </div>
+                                    <div th:unless="${#lists.contains(following, blog)}">
+                                        <form th:action="@{|/dashboard/blogs/${blog.id}/follow|}" th:method="POST"
+                                              style="display:inline">
+                                            <button class="btn btn-sm align-self-center ml-1"><i
+                                                    class="fas fa-plus"></i></button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -76,6 +76,7 @@
         <div th:replace="partials/right-nav :: right-nav"></div>
 
         <!--        End container and row-->
+
     </div>
 </div>
 

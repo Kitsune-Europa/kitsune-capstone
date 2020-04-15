@@ -50,6 +50,15 @@ body {
     border-radius: 15px;
 }
 
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 150px;
+    z-index: 99;
+    cursor: pointer;
+}
+
 /*Dividers*/
 hr {
     border: #239cd3 solid 2px;
@@ -187,13 +196,13 @@ width: 600px;
 
 .login-input {
     width: 100%;
-    color: #fc910d;
-    font-size: small;
+    color: #000;
     border: #ed6d50 1px solid;
     border-radius: 6px;
     /*transform: translateX(-1rem);*/
     z-index: 1;
     height: 2rem;
+    padding-left: 1em
 }
 
 .login-btn {
@@ -258,7 +267,7 @@ width: 600px;
 }
 
 .date-created, .created-by, .categories {
-    font-weight: lighter;
+    font-weight: bold;
     font-size: small;
     color: #ed6d50;
 }
@@ -329,18 +338,41 @@ th {
 
 tr {
     background-color: #FFFFFF;
-    color: #ed6d50;
+    color: #000000;
 }
 
 /*Youtube Search*/
 
-#texttocopy {
-    color: #1674b1;
-    z-index: -1;
-    visibility: hidden;
+.search-video {
+    width: 100%;
 }
 
-.copy-btn {
-    transform: translateY(-2rem);
-    z-index: 1;
+.video-header {
+    color: #ed6d50;
+    font-weight: bold;
+}
+
+/*Google Search*/
+
+.site-link {
+    color: #239cd3;
+    font-weight: bold;
+}
+
+.site-link:hover {
+    color: #fc910d;
+}
+
+/*Tips*/
+
+.search-card {
+    color: black;
+}
+
+.nav-item .dropdown{
+    z-index: 20;
+}
+
+.left-nav{
+    z-index:0;
 }

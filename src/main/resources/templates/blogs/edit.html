@@ -16,18 +16,18 @@
 
         <!--    Form Start-->
         <div class="col-lg-6">
-            <h3 class="dash-header">Edit Blog</h3>
+            <h2 class="dash-header">Edit Blog</h2>
             <div class="form-container">
                 <form class="forms d-flex flex-column" th:action="@{|/dashboard/blogs/${blog.id}/edit|}" th:method="post"
                       th:object="${blog}">
                     <div class="d-flex justify-content-left align-items-baseline">
                         <label for="" class="pr-2">Title</label>
-                        <input th:field="*{blogTitle}" />
+                        <input th:field="*{blogTitle}" class="login-input"/>
                     </div>
                     <br/>
                     <div class="d-flex justify-content-left align-items-baseline">
                         <label for="" class="pr-2">Handle</label>
-                        <input th:field="*{handle}" />
+                        <input th:field="*{handle}" class="login-input" />
                     </div>
                     <br/>
                     <div class="d-flex flex-row">

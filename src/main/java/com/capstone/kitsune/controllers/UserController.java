@@ -81,4 +81,3 @@ public class UserController {
         return "redirect:/logout";
     }
 }
-

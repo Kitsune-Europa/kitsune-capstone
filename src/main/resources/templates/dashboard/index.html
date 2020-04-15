@@ -15,7 +15,7 @@
 
         <!--        Recent Posts: posts from followed blogs-->
         <div class="col-lg-6">
-            <h3 class="dash-header mt-2">Recent Posts</h3>
+            <h2 class="dash-header mt-2">Recent Posts</h2>
             <hr style="border: #1674b1 solid 2px;">
             <!--Displays if user is not following any blogs with posts-->
             <div th:each="blog : ${users.following}">
@@ -23,10 +23,9 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">No posts to show (yet!)</h5>
-                            <p class="card-text">Follow <a th:href="@{/dashboard/blogs}"
-                                                           style="color: #ed6d50; "><u>blogs</u></a> to show posts in
-                                your
-                                dashboard</p>
+                            <p class="card-text"><a th:href="@{/dashboard/blogs}"
+                                                    style="color: #ed6d50; "><u>Follow blogs to show posts in your
+                                dashboard</u></a></p>
                         </div>
                     </div>
                 </div>
@@ -67,18 +66,19 @@
                                     <p class="card-info"> Created on <span th:text="${post.dateCreated}"
                                                                            class="date-created"></span></p>
                                 </div>
-                                <div class="d-flex flex-row">
+                                <div class="d-flex flex-row align-items-center">
                                     <a th:href="@{/dashboard/blogs/{id}(id=${post.blog.id})}"
                                        class="btn follow-btn align-self-center mr-1"><i
                                             class="far fa-eye"></i></a>
                                     <div th:if="${userName != blog.user.username}">
                                         <div th:if="${#lists.contains(following, blog)}">
-                                            <button class="btn btn-sm align-self-center ml-1">Following</button>
+                                            <button class="btn btn-sm">Following</button>
                                         </div>
                                         <div th:unless="${#lists.contains(following, blog)}">
                                             <form th:action="@{|/dashboard/blogs/${blog.id}/follow|}" th:method="POST"
                                                   style="display:inline">
-                                                <button class="btn btn-sm align-self-center ml-1"><i class="fas fa-plus"></i></button>
+                                                <button class="btn btn-sm ml-1"><i
+                                                        class="fas fa-plus"></i></button>
                                             </form>
                                         </div>
                                     </div>
