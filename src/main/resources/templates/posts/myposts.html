@@ -39,7 +39,7 @@
                         <div class="card-body">
                             <h5 th:text="${post.textTitle}" class="card-title">Card title</h5>
                             <div th:if="${#strings.isEmpty(post.videoEmbedCode) == false}">
-                                <iframe width="560" height="315"
+                                <iframe class="video-post"
                                         th:src="@{https://www.youtube.com/embed/{videoEmbedCode}(videoEmbedCode = ${post.videoEmbedCode})}"
                                         frameborder="0"
                                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -57,11 +57,11 @@
                                 <div class="row d-flex justify-content-center">
                                     <div th:if="${userName == post.blog.user.username}">
                                         <a th:href="@{|/dashboard/posts/${post.id}/edit|}">
-                                            <button class="btn">Edit</button>
+                                            <button class="btn mr-1">Edit</button>
                                         </a>
                                         <form th:action="@{|/dashboard/posts/${post.id}/delete|}" th:method="POST"
                                               style="display:inline">
-                                            <button class="btn">Delete</button>
+                                            <button class="btn mr-1">Delete</button>
                                         </form>
                                     </div>
                                     <div>
