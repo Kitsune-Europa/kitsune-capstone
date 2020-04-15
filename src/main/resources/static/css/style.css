@@ -368,3 +368,11 @@ tr {
 .search-card {
     color: black;
 }
+
+.nav-item .dropdown{
+    z-index: 20;
+}
+
+.left-nav{
+    z-index:0;
+}
